@@ -17,11 +17,11 @@ const Part = (props) => {
 const Content = () => {
 
   return(
-    <>
+    <div>
     <Part title='Fundamentals of React' exercises='10' />
     <Part title='Using props to pass data' exercises='7'/>
     <Part title='State of a component' exercises='14'/>
-    </>
+    </div>
   )
 }
 

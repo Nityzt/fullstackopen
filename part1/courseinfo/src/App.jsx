@@ -1,6 +1,6 @@
 const Header = () => {
  return (
-   <h1>'Half Stack application development'</h1>
+   <h1>Half Stack application development</h1>
  )
 }
 

@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 const Statistics = (props) =>{
-  return(
+    return(
     <>
       {props.text} {props.stat} <br></br>
     </>
-  )
+  ) 
 }
 
 const App = () => {
@@ -26,12 +26,16 @@ const App = () => {
       <button onClick={()=>{setNeutral(neutral+1)}}>neutral</button>
       <button onClick={()=>{setBad(bad+1)}}>bad</button>
       <h1>statistics</h1>
+      {total===0 ? <>No feedback given</> : 
+      ( 
+      <>
       <Statistics text='good' stat={good}/>
       <Statistics text='neutral' stat={neutral}/>
       <Statistics text='bad' stat={bad}/>
       <Statistics text='average' stat={average}/>
       <Statistics text='positive' stat={positive + ' %'} />
-
+      </>
+     )}
     </div>
   )
 }

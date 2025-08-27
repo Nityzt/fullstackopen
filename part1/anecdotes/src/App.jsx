@@ -7,6 +7,15 @@ const Button = (props) => {
   )
 }
 
+const Votes = (props) => {
+  return(
+    <>
+    has {props.votes} votes <br></br>
+    <button onClick={props.increment}>vote</button>
+    </>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -21,16 +30,25 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
 
+  const [votes, setVotes] = useState(new Uint16Array(anecdotes.length))
+
 
   const random = () => {
     const Index = Math.floor(Math.random()* anecdotes.length)
     setSelected(Index)
   }
 
+  const incrementVotes = () => {
+    const newVotes = [...votes]
+    newVotes[selected] += 1
+    setVotes(newVotes)
+  }
+
   return (
     <div>
       {anecdotes[selected]}
       <br></br>
+      <Votes votes={votes[selected]} increment={incrementVotes}></Votes>
       <Button anec={random} text='next anecdote'></Button>
     </div>
   )
